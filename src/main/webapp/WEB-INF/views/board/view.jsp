@@ -13,29 +13,18 @@
     />
   </head>
   <body>
-    <div>/board/form</div>
+    <div> /view / html</div>
     <div class="container">
-      <form action="/board/form" method="post">
-        <div>
-          <label for="title">title</label>
-          <input type="text" name="title" id="" />
-        </div>
-        <div>
-          <label for="content">content</label>
-          <input type="text" name="content" id="" />
-        </div>
-        <div>
-          <label for="userName">userName</label>
-          <input type="text" name="userName" id="" />
-        </div>
-        <div>
-          <label for="date">date</label>
-          <input type="text" name="date" id="" />
-        </div>
-        <div>
-          <button>formsubmit</button>
-        </div>
-      </form>
+      <div>title</div>
+      <div>content</div>
+      <div>userName</div>
+      <div>date</div>
+      <div>
+        <form action="/board/edit">edit</form>
+      </div>
+      <div>
+        <form action="/board/list">list</form>
+      </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

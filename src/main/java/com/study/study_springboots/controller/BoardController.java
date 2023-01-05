@@ -11,8 +11,24 @@ public class BoardController { //작성하는
         return "/WEB-INF/views/board/form.jsp";
     }
     @RequestMapping(value = "/board/form", method = RequestMethod.POST)
-    public String formPost(){
+    public String formlistPOST(){
         //insert biz ,버튼을 누르면 list.jsp로 이동
         return "/WEB-INF/views/board/list.jsp";
+    }
+    @RequestMapping(value = { "/board/list", "/board" }, method = RequestMethod.GET)
+    public String list(){
+      
+        return "/WEB-INF/views/board/list.jsp";
+    }
+    @RequestMapping(value =  "/board/view", method = RequestMethod.GET)
+    public String view(){
+      
+        return "/WEB-INF/views/board/view.jsp";
+    }
+    
+    @RequestMapping(value =  "/board/edit", method = RequestMethod.GET)
+    public String edit(){
+      
+        return "/WEB-INF/views/board/edit.jsp";
     }
 }
