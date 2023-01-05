@@ -14,12 +14,12 @@ public class HomeController {
     public void home(){ 
         int i = 0;   
     }//Check your ViewResolver setup - 경로와 파일이 있는지 확인하기(jsp가 없어서 에러남)
-    @RequestMapping(value = "/homejsp") //http://localhost:8080/home
+    @RequestMapping(value = "/homejsp") 
     public String homejsp(){ //void를 String으로
         int i = 0;
         return "WEB-INF/views/home.jsp";
     }
-    @RequestMapping(value = "/homehtml") //http://localhost:8080/home
+    @RequestMapping(value = "/homehtml") 
     public String homehtml(){ //void를 String으로
         int i = 0;
         return "WEB-INF/views/home.html";

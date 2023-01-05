@@ -9,6 +9,5 @@
 <body>
     <div>Main ! JSP</div>
     <div>Board</div>
-    <div> a </div>
-</body>
+    <div><a href="/board/form">/board/form BoardController form() /board/form.jsp</a></div>
 </html>
