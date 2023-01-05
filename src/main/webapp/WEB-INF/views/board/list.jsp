@@ -13,8 +13,8 @@
     />
   </head>
   <body>
-    <div> /board/list</div>
     <div class="container">
+    <div> /board/list</div>
       <table class="table">
         <thead>
           <tr>

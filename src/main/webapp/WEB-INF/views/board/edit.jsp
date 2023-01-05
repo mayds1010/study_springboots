@@ -13,9 +13,9 @@
     />
   </head>
   <body>
-    <div>/board / edit</div>
     <div class="container">
-      <form action="/board/form" method="post">
+    <div>/board / edit</div>
+      <form action="/board/form" method="post"> 
         <div>
           <label for="title">title</label>
           <input type="text" name="title" id="" />
