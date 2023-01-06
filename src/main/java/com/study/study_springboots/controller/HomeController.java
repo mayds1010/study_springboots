@@ -8,7 +8,7 @@ public class HomeController {
     @RequestMapping(value = {"", "/", "/main"}) //@RequestMapping()-괄호가 있기때문에 funtion(생성자)  
     public String main(){ 
         int i = 0;
-        return "WEB-INF/views/main.jsp";
+        return "main";
     }
     @RequestMapping(value = "/home") //http://localhost:8080/home
     public void home(){ 
@@ -17,11 +17,11 @@ public class HomeController {
     @RequestMapping(value = "/homejsp") 
     public String homejsp(){ //void를 String으로
         int i = 0;
-        return "WEB-INF/views/home.jsp";
+        return "home";
     }
     @RequestMapping(value = "/homehtml") 
     public String homehtml(){ //void를 String으로
         int i = 0;
-        return "WEB-INF/views/home.html";
+        return "home.html";
     }
 }
