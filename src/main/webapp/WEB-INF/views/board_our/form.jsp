@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <div>/board/form</div>
+    <div>/board_our/form</div>
     <div class="container">
       <form action="/board_our/save" method="post">
         <div>
