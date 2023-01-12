@@ -38,6 +38,7 @@
           <input type="date" class="form-control" name="date" id="date" />
         </div>
         <div>
+        <%--submit을 누르면 글 작성 완료페이지인 save(list)페이지 이동 --%>
           <button>submit</button>
         </div>
       </form>

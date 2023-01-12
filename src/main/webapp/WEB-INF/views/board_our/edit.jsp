@@ -34,6 +34,7 @@
       </div>
       <div>
         <button>update</button>
+        <%--글을 수정하고 버튼 클릭 시 게시글완료 --%>
       </div>
        </div>
       <script

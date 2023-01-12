@@ -17,21 +17,23 @@
             <thead>
                 <tr>
                     <th class="col-1" scope=>Title</th>
-                    <td class="col-6">Hello : ${boardBean.title} </td>
+                    <td class="col-6">title Hello : ${boardBean.title} </td>
                     <th>user name </th>
                     <td>Mark : ${boardBean.userName}</td>
                     <th>date</th>
-                    <td>22.11.11</td>
+                    <td>todayDate : ${boardBean.date}</td>
                 </tr>
             </thead>
             <tbody>
-                <td colspan=6>${boardBean.content}</td>
+                <td colspan=6>content: ${boardBean.content}</td>
             </tbody>
         </table>
         <div>
+        <%-- go list를 클릭시 게시판페이지목록 보여짐--%>
             <form action="/board_our/list">
                 <button>go list</button>
             </form>
+            <%--edit를 클릭시 수정된 글이 올라감  --%>
             <form action="/board_our/edit" method="post">
                 <button>edit</button>
             </form>

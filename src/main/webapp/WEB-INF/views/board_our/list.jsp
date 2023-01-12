@@ -16,19 +16,19 @@
   </head>
   <body>
     <div>board_our/list</div>
-    <div>
-    <% 
-     String firstWithRequest = (String)request.getAttribute("firstString");
+ <div>
+    <%
+       String firstWithRequest = (String)request.getAttribute("firstString");
     %>
         <div>With Request.getAttribute : <%= firstWithRequest %></div>
     </div>
     <div>
-         <div>With Get Value on Spring : ${firstString}, ${boardList}/div>
+        <div>With Get Value on Spring : ${firstString}, ${boardList}</div>
     </div>
-    <div>set Value with Code Block</div>
-    <div><% int num = 0; %>set : <%= num %>, ${num}</div>
+     <%--<div>set Value with Code Block</div>
+    <div><% int num = 0; %>set : <%= num %>, ${num}</div> --%>
     
-    <%-- <div>set Value with JDTL</div>
+    <%-- <div>set Value with JSTL</div>
     <div><c:set var="num_02" value="2" /> set : <c:out value="${num_02}" /></div> --%>
 
     <div class="container"> 
@@ -43,6 +43,7 @@
         </thead>
         <tbody>
             <tr>
+            <%--Hello를 클릭시 글 작성목록을 볼 수 있는 view페이지로 이동  --%>
                 <th scope=>1</th>
                 <td><a href="/board_our/view">Hello</a></td>
                 <td>Mark</td>
@@ -50,7 +51,7 @@
             </tr>
         </tbody>
     </table>
-
+<%--form을 클릭시 글을 작성할 수 있는 form페이지로 이동   --%>
 <div><form action="/board_our/form"><button>form</button></form><div>
 </div>
     <script
