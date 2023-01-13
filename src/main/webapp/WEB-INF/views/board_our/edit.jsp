@@ -16,6 +16,7 @@
     <div>/board_our/edit</div>
     <div class="container"> 
     <form action="/board_our/save" method = "post">
+    <%-- 완료페이지가 보여져야 하니까 save를 post로 --%>
       <div>
         <label for="title">title</label>
         <input type="text " class="form-control" name="title" id="title" />

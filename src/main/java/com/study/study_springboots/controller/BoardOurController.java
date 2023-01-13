@@ -3,8 +3,10 @@ package com.study.study_springboots.controller;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.study_springboots.beans.BoardBean;
@@ -24,9 +26,9 @@ public class BoardOurController {
     @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET) // "/board_our/"
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("firstString", "firstValue"); // firstString을 list에 소환하니까 firstValue출력
         DataInfors dataInfors = new DataInfors();
         ArrayList<BoardBean> boardList = dataInfors.getDataListWithBoardBean();
+        modelAndView.addObject("firstString", "firstValue"); // firstString(응답할 뷰)을 list에 소환하니까 firstValue(전달할 값)출력
         modelAndView.addObject("boardList", boardList);
 
         modelAndView.setViewName("board_our/list");
@@ -35,9 +37,10 @@ public class BoardOurController {
 
     // view-내가 작성한 글 목록 보기
     @RequestMapping(value = "/view", method = RequestMethod.GET) // "/board_our/"
-    public ModelAndView view(ModelAndView modelAndView) { // 파라미터로 넘겨줌
+    public ModelAndView view(@RequestParam String uid, ModelAndView modelAndView) { // 파라미터로 넘겨줌
+        System.out.println("uid:" + uid);
         DataInfors dataInfors = new DataInfors();
-        BoardBean boardBean = dataInfors.getDataWithMamberBean();
+        BoardBean boardBean = dataInfors.getDataWithMamberBean();// dataInfors에 getDataWithMamberBean을 boardBean에 담아 줌
         modelAndView.addObject("boardBean", boardBean);
 
         modelAndView.setViewName("board_our/view");

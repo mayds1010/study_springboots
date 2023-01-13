@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +14,22 @@
 </head>
 
 <body>
+
+        ${boardBean} <%-- 미리 출력이 되는지 확인해보기 --%>
     <div class="container">
-        ${boardBean}
         <table class="table">
             <thead>
                 <tr>
                     <th class="col-1" scope=>Title</th>
-                    <td class="col-6">title Hello : ${boardBean.title} </td>
+                    <td class="col-6">title Hello :${boardBean.title}  </td>
                     <th>user name </th>
                     <td>Mark : ${boardBean.userName}</td>
                     <th>date</th>
-                    <td>todayDate : ${boardBean.date}</td>
+                    <td>todayDate :${boardBean.date} </td>
                 </tr>
             </thead>
             <tbody>
-                <td colspan=6>content: ${boardBean.content}</td>
+                <td colspan=6>content:${boardBean.content} </td>
             </tbody>
         </table>
         <div>
