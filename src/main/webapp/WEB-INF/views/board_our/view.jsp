@@ -23,7 +23,7 @@
                     <th class="col-1" scope=>Title</th>
                     <td class="col-6">title Hello :${boardBean.title}  </td>
                     <th>user name </th>
-                    <td>Mark : ${boardBean.userName}</td>
+                    <td>user name: ${boardBean.userName}</td>
                     <th>date</th>
                     <td>todayDate :${boardBean.date} </td>
                 </tr>

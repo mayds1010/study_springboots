@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,35 +16,26 @@
   </head>
   <body>
     <div class="container">
-    <div> /board/list</div>
+    <div> /board/list.jsp(게시판)</div>
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">title</th>
-            <th scope="col">content</th>
-            <th scope="col">userName</th>
-            <th scope="col">date</th>
+            <th scope=>글번호</th>
+                <th scope= class="col-9">Title</th>
+                <th scope=>User name</th>
+                <th scope=>Date</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">spring.Mark</th>
-            <td>spring</td>
-            <td>Mark</td>
-            <td>23.01.05</td>
-          </tr>
-          <tr>
-            <th scope="row">servlet.Jacob</th>
-            <td>servlet</td>
-            <td>Jacob</td>
-            <td>23.01.05</td>
-          </tr>
-          <tr>
-            <th scope="row">jsp.susan</th>
-            <td>jsp</td>
-            <td>susan</td>
-            <td>23.01.05</td>
-          </tr>
+        <c:forEach var="board" items="${boardList}" varStatus="status">
+     <tr>
+                <th scope="">${status.count}</th>
+                <td><a href="/board/view?title=${board.title}">${board.title}</a></td>
+                <td>${board.userName}</td>
+                <td>${board.date}</td>
+            </tr>
+    </c:forEach>
+    
         </tbody>
       </table>
       <div><form action="/board/form"><button>formlist</button></form><div>

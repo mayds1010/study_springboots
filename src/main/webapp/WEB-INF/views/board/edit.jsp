@@ -15,7 +15,7 @@
   <body>
     <div class="container">
     <div>/board / edit</div>
-      <form action="/board/form" method="post"> 
+      <form action="/board/save" method="post"> 
         <div>
           <label for="title">title</label>
           <input type="text" name="title" id="" />

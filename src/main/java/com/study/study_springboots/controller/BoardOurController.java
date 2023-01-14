@@ -19,11 +19,12 @@ import com.study.study_springboots.service.DataInfors;
 //   + list.jsp(/board)게시판  -> view.jsp(/board_our/view)내 작성게시글보기 -> list.jsp(/board_our/list)게시판
 //   + list.jsp(/board)게시판 -> form.jsp(/board_our/form)게시글작성 -> list.jsp(/board_our/save) with Post 작성한 게시글 게시판에 게시
 //   + view.jsp(/board_our/view)내 작성게시글보기 -> edit.jsp(/board_our/edit) with Post 게시글 수정-> list.jsp(/board_our/save) with Post 수정된 게시글 확인
-@Controller
-@RequestMapping(value = "/board_our")
+//@Controller
+//@RequestMapping(value = "/board_our")
 public class BoardOurController {
     // list-게시판페이지목록
-    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET) // "/board_our/"
+    // @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET) //
+    // "/board_our/"
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
         DataInfors dataInfors = new DataInfors();
@@ -36,11 +37,11 @@ public class BoardOurController {
     }
 
     // view-내가 작성한 글 목록 보기
-    @RequestMapping(value = "/view", method = RequestMethod.GET) // "/board_our/"
+    // @RequestMapping(value = "/view", method = RequestMethod.GET) // "/board_our/"
     public ModelAndView view(@RequestParam String uid, ModelAndView modelAndView) { // 파라미터로 넘겨줌
         System.out.println("uid:" + uid);
         DataInfors dataInfors = new DataInfors();
-        BoardBean boardBean = dataInfors.getDataWithMamberBean();// dataInfors에 getDataWithMamberBean을 boardBean에 담아 줌
+        BoardBean boardBean = dataInfors.getDataWithMemberBean();// dataInfors에 getDataWithMamberBean을 boardBean에 담아 줌
         modelAndView.addObject("boardBean", boardBean);
 
         modelAndView.setViewName("board_our/view");
@@ -48,7 +49,8 @@ public class BoardOurController {
     }
 
     // 내가 작성한 글 수정페이지
-    @RequestMapping(value = "/edit", method = RequestMethod.POST) // "/board_our/edit"
+    // @RequestMapping(value = "/edit", method = RequestMethod.POST) //
+    // "/board_our/edit"
     public ModelAndView edit(ModelAndView modelAndView) {
         modelAndView.setViewName("board_our/edit");
         // edit with Post
@@ -56,14 +58,16 @@ public class BoardOurController {
     }
 
     // form-게시글작성 할 수 있는 페이지
-    @RequestMapping(value = "/form", method = RequestMethod.GET) // "/board_our/form"
+    // @RequestMapping(value = "/form", method = RequestMethod.GET) //
+    // "/board_our/form"
     public ModelAndView form(ModelAndView modelAndView) {
         modelAndView.setViewName("board_our/form");
         return modelAndView;
     }
 
     // save-게시글작성 완료 페이지
-    @RequestMapping(value = "/save", method = RequestMethod.POST) // "/board_our/save"
+    // @RequestMapping(value = "/save", method = RequestMethod.POST) //
+    // "/board_our/save"
     public ModelAndView save(ModelAndView modelAndView) {
         modelAndView.setViewName("board_our/list");
         // insert biz ,버튼을 누르면 list.jsp로 이동 ,save with POST!!

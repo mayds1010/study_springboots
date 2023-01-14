@@ -31,13 +31,14 @@ public class DataInfors { // service와 같음
         bundlesData.put("searchForm", searchForm);
         bundlesData.put("tablesListWithString", tablesListWithString);
 
-        bundlesData.put("dataWithMamberBean", DataInfors.getDataWithMamberBean());
-        bundlesData.put("dataListWithBoardBean", DataInfors.getDataListWithBoardBean());
+        bundlesData.put("dataWithMamberBean", DataInfors.getDataWithMemberBean());
+        bundlesData.put("dataListWithBoardBean",
+                DataInfors.getDataListWithBoardBean());
 
         return bundlesData;
     }
 
-    public BoardBean getDataWithMamberBean() {
+    public BoardBean getDataWithMemberBean() {
         BoardBean boardBean = new BoardBean();
         boardBean.setTitle("Mark");
         boardBean.setContent("Otto");
@@ -52,20 +53,72 @@ public class DataInfors { // service와 같음
         boardBean.setTitle("Mark");
         boardBean.setContent("Otto");
         boardBean.setUserName("@mdo");
+        boardBean.setDate("23.01.13");
         membersList.add(boardBean);
 
         boardBean = new BoardBean();
         boardBean.setTitle("Jacob");
         boardBean.setContent("Thornton");
         boardBean.setUserName("@fat");
+        boardBean.setDate("23.01.13");
         membersList.add(boardBean);
 
         boardBean = new BoardBean();
         boardBean.setTitle("Larry");
         boardBean.setContent("Bird");
         boardBean.setUserName("@twitter");
+        boardBean.setDate("23.01.13");
         membersList.add(boardBean);
+
         return membersList;
+    }
+
+    public ArrayList<BoardBean> getDataListWithBoardBean2() { // 두번째 실습 list
+        ArrayList<BoardBean> membersList = new ArrayList<>();
+        BoardBean boardBean = new BoardBean();
+        boardBean.setTitle("Hello");
+        boardBean.setContent("안녕하세요");
+        boardBean.setUserName("신짱구");
+        boardBean.setDate("23.01.13");
+        membersList.add(boardBean);
+
+        boardBean = new BoardBean();
+        boardBean.setTitle("Thankyou");
+        boardBean.setContent("감사합니다");
+        boardBean.setUserName("신영만");
+        boardBean.setDate("23.01.14");
+        membersList.add(boardBean);
+
+        boardBean = new BoardBean();
+        boardBean.setTitle("Sorry");
+        boardBean.setContent("죄송합니다");
+        boardBean.setUserName("봉미선");
+        boardBean.setDate("23.01.15");
+        membersList.add(boardBean);
+
+        return membersList;
+    }
+
+    public BoardBean getDataListViewWithBoardBean(String title) {
+        BoardBean boardBean = new BoardBean();
+        for (BoardBean viewContent : getDataListWithBoardBean2()) {
+            if (title.equals(viewContent.getTitle())) {
+                boardBean.setTitle(viewContent.getTitle());
+                boardBean.setContent(viewContent.getContent());
+                boardBean.setUserName(viewContent.getUserName());
+                boardBean.setDate(viewContent.getDate());
+
+                break;
+            } else {
+                boardBean.setTitle("잘못 접근하였습니다");
+                boardBean.setContent("잘못 접근하였습니다");
+                boardBean.setUserName("잘못 접근하였습니다");
+                boardBean.setDate("잘못 접근하였습니다");
+
+            }
+        }
+        return boardBean;
+
     }
 
 }

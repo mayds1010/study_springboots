@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,18 +15,47 @@
     />
   </head>
   <body>
+    <div> /board/view.jsp(게시글상세페이지)</div>
     <div class="container">
-    <div> /view / html</div>
-      <div>title</div>
+  
+    <table class="table">
+    <thead>
+    <tr>
+       <th>Title</th>
+       <td>
+       ${boardBean.title}
+       </td>
+       
+       <th>UserName</th>
+       <td>
+       ${boardBean.userName}
+       </td>
+       
+       <th>Date </th>
+       <td>
+       ${boardBean.date}
+       </td>
+      
+      </tr>
+    </thead>
+    <tbody>
+    <th>Content </th>
+    <td> ${boardBean.content}</td>
+    </tbody>
+      </table>
+     
+          <%-- <div>title</div>
       <div>content</div>
       <div>userName</div>
-      <div>date</div>
-      <div>
-        <form action="/board/edit">edit</form>
-      </div>
-      <div>
-        <form action="/board/list">list</form>
-      </div>
+      <div>date</div> --%>
+    <div>
+            <form action="/board/list">
+                <button>go list</button>
+            </form>
+            <form action="/board/edit" method="post">
+                <button>edit</button>
+            </form>
+        </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
