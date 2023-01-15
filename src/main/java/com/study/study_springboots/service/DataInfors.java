@@ -74,39 +74,39 @@ public class DataInfors { // service와 같음
     }
 
     public ArrayList<BoardBean> getDataListWithBoardBean2() { // 두번째 실습 list
-        ArrayList<BoardBean> membersList = new ArrayList<>();
+        ArrayList<BoardBean> boardList = new ArrayList<>(); // membersList
         BoardBean boardBean = new BoardBean();
         boardBean.setTitle("Hello");
         boardBean.setContent("안녕하세요");
         boardBean.setUserName("신짱구");
         boardBean.setDate("23.01.13");
-        membersList.add(boardBean);
+        boardList.add(boardBean);
 
         boardBean = new BoardBean();
         boardBean.setTitle("Thankyou");
         boardBean.setContent("감사합니다");
         boardBean.setUserName("신영만");
         boardBean.setDate("23.01.14");
-        membersList.add(boardBean);
+        boardList.add(boardBean);
 
         boardBean = new BoardBean();
         boardBean.setTitle("Sorry");
         boardBean.setContent("죄송합니다");
         boardBean.setUserName("봉미선");
         boardBean.setDate("23.01.15");
-        membersList.add(boardBean);
+        boardList.add(boardBean);
 
-        return membersList;
+        return boardList;
     }
 
     public BoardBean getDataListViewWithBoardBean(String title) {
         BoardBean boardBean = new BoardBean();
-        for (BoardBean viewContent : getDataListWithBoardBean2()) {
-            if (title.equals(viewContent.getTitle())) {
-                boardBean.setTitle(viewContent.getTitle());
-                boardBean.setContent(viewContent.getContent());
-                boardBean.setUserName(viewContent.getUserName());
-                boardBean.setDate(viewContent.getDate());
+        for (BoardBean boardView : getDataListWithBoardBean2()) {
+            if (title.equals(boardView.getTitle())) {
+                boardBean.setTitle(boardView.getTitle());
+                boardBean.setContent(boardView.getContent());
+                boardBean.setUserName(boardView.getUserName());
+                boardBean.setDate(boardView.getDate());
 
                 break;
             } else {
