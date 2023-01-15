@@ -110,10 +110,10 @@ public class DataInfors { // service와 같음
 
                 break;
             } else {
-                boardBean.setTitle("잘못 접근하였습니다");
-                boardBean.setContent("잘못 접근하였습니다");
-                boardBean.setUserName("잘못 접근하였습니다");
-                boardBean.setDate("잘못 접근하였습니다");
+                boardBean.setTitle("error");
+                boardBean.setContent("error");
+                boardBean.setUserName("error");
+                boardBean.setDate("error");
 
             }
         }
