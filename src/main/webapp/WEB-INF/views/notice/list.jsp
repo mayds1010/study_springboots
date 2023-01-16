@@ -28,12 +28,12 @@
           </tr>
         </thead>
         <tbody>
-        <c:forEach var="board" items="${boardList}" varStatus="status">
+        <c:forEach var="notice" items="${boardList}" varStatus="status">
      <tr>
                 <th scope="">${status.count}</th>
-                <td><a href="/board/view?title=${board.title}">${board.title}</a></td>
-                <td>${board.userName}</td>
-                <td>${board.date}</td>
+                <td><a href="/notice/view?title=${notice.title}">${notice.title}</a></td>
+                <td>${notice.userName}</td>
+                <td>${notice.date}</td>
             </tr>
     </c:forEach>
     
