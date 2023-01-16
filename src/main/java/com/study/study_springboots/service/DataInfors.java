@@ -121,4 +121,18 @@ public class DataInfors { // service와 같음
 
     }
 
+    public BoardBean paramDataBean(HashMap<String, String> params) {
+        String title = params.get("title");
+        String content = params.get("content");
+        String userName = params.get("userName");
+        String date = params.get("date");
+
+        BoardBean boardBean = new BoardBean();
+        boardBean.setTitle(title);
+        boardBean.setContent(content);
+        boardBean.setUserName(userName);
+        boardBean.setDate(date);
+
+        return boardBean;
+    }
 }
