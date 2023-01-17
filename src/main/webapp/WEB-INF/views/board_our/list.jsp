@@ -27,15 +27,6 @@
         <div>With Get Value on JSP : ${firstString}, ${boardList}</div>
     </div>
 
-    <%-- <div>
-        <div>With Get Value on JSTL : <c:out value="${firstString}" /></div>
-    </div> --%>
-     <%--<div>set Value with Code Block</div>
-    <div><% int num = 0; %>set : <%= num %>, ${num}</div> --%>
-    
-    <%-- <div>set Value with JSTL</div>
-    <div><c:set var="num_02" value="2" /> set : <c:out value="${num_02}" /></div> --%>
-
 
   <div>jstl if</div>
   <%-- @ if(){}@ 원래 쓰던 방법 - <c:if  > --%>
@@ -80,7 +71,8 @@
         <thead>
             <tr>
                 <th scope=>#</th>
-                <th scope= class="col-9">Title</th>
+                <th scope= class="">Title</th>
+                <th scope= class="">Title with Path</th>
                 <th scope=>user name</th>
                 <th scope=>date</th>
             </tr>
@@ -90,6 +82,7 @@
             <%--Hello를 클릭시 글 작성목록을 볼 수 있는 view페이지로 이동  --%>
                 <th scope=>1</th>
                 <td><a href="/board_our/view?uid=Hello">Hello</a></td>
+                <td><a href="/board_our/view/Hello">Hello</a></td> <%--/view/{action_uid}--%>
                 <td>Mark</td>
                 <td>22.11.11</td>
             </tr>
@@ -97,6 +90,7 @@
             <%--Jacob를 클릭시 글 작성목록을 볼 수 있는 view페이지로 이동  --%>
                 <th scope=>2</th>
                 <td><a href="/board_our/view?uid=Jacob">Jacob</a></td>
+                <td><a href="/board_our/view/Jacob">Jacob</a></td>
                 <td>Jacob</td>
                 <td>22.11.11</td>
             </tr>
@@ -104,6 +98,7 @@
             <%--Larry를 클릭시 글 작성목록을 볼 수 있는 view페이지로 이동  --%>
                 <th scope=>3</th>
                 <td><a href="/board_our/view?uid=Larry">Larry</a></td>
+                <td><a href="/board_our/view/Larry">Larry</a></td>
                 <td>Larry</td>
                 <td>22.11.11</td>
             </tr>
