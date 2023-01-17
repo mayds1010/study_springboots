@@ -11,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.study_springboots.beans.BoardBean;
 import com.study.study_springboots.service.DataInfors;
 
-@Controller
-@RequestMapping(value = "/board")
+//@Controller
+//@RequestMapping(value = "/board")
 public class BoardController {
 
-    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+    // @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
         DataInfors dataInfors = new DataInfors();
@@ -27,7 +27,7 @@ public class BoardController {
         return modelAndView; // --> Dispatcher Servlet
     }
 
-    @RequestMapping(value = "/view", method = RequestMethod.GET)
+    // @RequestMapping(value = "/view", method = RequestMethod.GET)
     public ModelAndView view(@RequestParam String title, ModelAndView modelAndView) {
         DataInfors dataInfors = new DataInfors();
         BoardBean boardBean = dataInfors.getDataListViewWithBoardBean(title);
@@ -38,19 +38,19 @@ public class BoardController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    // @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView edit(ModelAndView modelAndView) {
         modelAndView.setViewName("board/edit");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    // @RequestMapping(value = "/form", method = RequestMethod.GET)
     public ModelAndView form(ModelAndView modelAndView) {
         modelAndView.setViewName("board/form");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    // @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView save(ModelAndView modelAndView) {
         // insert biz
         modelAndView.setViewName("board/list");
