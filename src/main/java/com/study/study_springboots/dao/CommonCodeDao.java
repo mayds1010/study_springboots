@@ -16,9 +16,9 @@ public class CommonCodeDao {
     private static SqlSessionTemplate sqlSessionTemplate;
 
     public Object getList() {
-        String statement = "Home.selectFromANSWERSByQUESTIONS_UID";
+        String statement = "Common.selectFromTOYS_JAVAWITHDB.CIP_COMMON_CODEByCOMMON_CODE_ID";
         Map parameter = new HashMap();
-        parameter.put("QUESTION_UID", "Q2");
+        parameter.put("QUESTION_UID", "Q2"); // 아직
         Object resultset = sqlSessionTemplate.selectList(statement, parameter);
         return resultset;
     }

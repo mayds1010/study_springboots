@@ -2,10 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Home">
-<!-- call Home.selectFromANSWERSByQUESTIONS_UID -->
-    <select id="selectFromANSWERSByQUESTIONS_UID" parameterType="Map" resultType="Map">
-        select QUESTIONS_UID, EXAMPLE_UID
+<!-- call Home.selectFromANSWERSByQUESTIONS_UID 자바로 호출하기위해 -->
+    <select id="selectFromANSWERSByQUESTIONS_UID" parameterType="Map" resultType="Map"><!-- key,value로 뽑기에 "Map" -->
+        select QUESTIONS_UID, EXAMPLE_UID<!--select(resultType=List)  -->
         from ANSWERS
-        where QUESTIONS_UID = #{QUESTION_UID}
+        where QUESTIONS_UID = #{QUESTION_UID}<!-- 컬럼은 대문자로, #{}(parameterType=String) -->
     </select>
 </mapper>
+<!--  -->
