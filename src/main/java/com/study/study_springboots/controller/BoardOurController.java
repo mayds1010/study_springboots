@@ -22,15 +22,15 @@ import com.study.study_springboots.service.DataInfors;
 //   + list.jsp(/board)게시판  -> view.jsp(/board_our/view)내 작성게시글보기 -> list.jsp(/board_our/list)게시판
 //   + list.jsp(/board)게시판 -> form.jsp(/board_our/form)게시글작성 -> list.jsp(/board_our/save) with Post 작성한 게시글 게시판에 게시
 //   + view.jsp(/board_our/view)내 작성게시글보기 -> edit.jsp(/board_our/edit) with Post 게시글 수정-> list.jsp(/board_our/save) with Post 수정된 게시글 확인
-@Controller
-@RequestMapping(value = "/board_our")
+//@Controller
+//@RequestMapping(value = "/board_our")
 public class BoardOurController {
 
     @Autowired
     DataInfors dataInfors;
 
     // list-게시판페이지목록
-    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET) //
+    // @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET) //
     // "/board_our/"
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
@@ -48,7 +48,7 @@ public class BoardOurController {
     // public ModelAndView view(@RequestParam String uid, ModelAndView modelAndView)
     // {
     // System.out.println("uid : "+uid);
-    @RequestMapping(value = "/view/{action_uid}", method = RequestMethod.GET)
+    // @RequestMapping(value = "/view/{action_uid}", method = RequestMethod.GET)
     public ModelAndView view(@PathVariable String action_uid, ModelAndView modelAndView) {
         // DataInfors dataInfors = new DataInfors();
         BoardBean boardBean = dataInfors.getDataWithMemberBean();
@@ -59,7 +59,7 @@ public class BoardOurController {
     }
 
     // 내가 작성한 글 수정페이지
-    @RequestMapping(value = "/edit", method = RequestMethod.POST) //
+    // @RequestMapping(value = "/edit", method = RequestMethod.POST) //
     // "/board_our/edit"
     public ModelAndView edit(ModelAndView modelAndView) {
         modelAndView.setViewName("board_our/edit");
@@ -68,14 +68,15 @@ public class BoardOurController {
     }
 
     // form-게시글작성 할 수 있는 페이지
-    @RequestMapping(value = "/form", method = RequestMethod.GET) // "/board_our/form"
+    // @RequestMapping(value = "/form", method = RequestMethod.GET) //
+    // "/board_our/form"
     public ModelAndView form(ModelAndView modelAndView) {
         modelAndView.setViewName("board_our/form");
         return modelAndView;
     }
 
     // save-게시글작성 완료 페이지
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    // @RequestMapping(value = "/save", method = RequestMethod.POST)
     // public ModelAndView save(@RequestParam HashMap<String, String> params,
     // ModelAndView modelAndView) {
     public ModelAndView save(BoardBean boardBean, ModelAndView modelAndView) {
