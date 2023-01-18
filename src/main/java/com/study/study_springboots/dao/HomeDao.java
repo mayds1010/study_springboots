@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+//db와 연결되는곳
 @Repository
 @Component // 디비연결고리
 public class HomeDao { // <mapper namespace="Home">를 연결하기 위한

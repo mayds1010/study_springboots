@@ -24,7 +24,7 @@ public class NoticeController {
         ArrayList<BoardBean> boardList = dataInfors.getDataListWithBoardBean();
         modelAndView.addObject("boardList", boardList);
 
-        modelAndView.setViewName("/notice/list");
+        modelAndView.setViewName("notice/list");
         return modelAndView;
     }
 
@@ -35,7 +35,6 @@ public class NoticeController {
         BoardBean boardBean = dataInfors.getDataListViewWithBoardBean(title);
         modelAndView.addObject("boardBean", boardBean);
 
-        modelAndView.setViewName("/notice/edit");
         return modelAndView;
     }
 
@@ -46,7 +45,7 @@ public class NoticeController {
         BoardBean boardBean = dataInfors.getDataWithMemberBean();
         modelAndView.addObject("boardBean", boardBean);
 
-        modelAndView.setViewName("/notice/view");
+        modelAndView.setViewName("notice/view");
         return modelAndView;
     }
 }
