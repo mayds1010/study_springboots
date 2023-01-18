@@ -21,4 +21,16 @@ public class CommonCodeOurDao {
         return result;
 
     }
+
+    public Object updateOne(String sqlMapId, Object dataMap) {
+        Object result = sqlSessionTemplate.update(sqlMapId, dataMap);
+        return result;// 숫자 표시됨
+
+    }
+
+    public Object delete(String sqlMapId, Object dataMap) {
+        Object result = sqlSessionTemplate.delete(sqlMapId, dataMap);
+        return result;// 숫자 표시됨
+
+    }
 }

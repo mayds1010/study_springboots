@@ -14,9 +14,11 @@
 			<th>코드 ID</th>
 			<th>코드명</th>
 			<th>부모 코드 ID</th>
+			<th>Delete</th>
 		</tr>
 	</thead>
 	<tbody>
+		<%-- 코드ID --%>
 		<c:forEach items="${resultMap}" var="resultData" varStatus="loop">
 			<tr>
 				<td class="text-center"><input type="checkbox" class="checkbox"
@@ -27,16 +29,22 @@
 						>${resultData.COMMON_CODE_ID}</button>
 				 </form>		
 				</td>
+			<%-- 코드명 --%>
 				<td>${resultData.NAME}</td>
-				<td class="text-center">
-					<div class="btn-group">
-						<button class="btn btn-outline-info"
-							 name="PARENT_COMMON_CODE_ID" >
-							 ${resultData.PARENT_COMMON_CODE_ID}
-							
-						</button>
-					</div>
-				</td>
+				<%-- 부모 코드 ID --%>
+				 <td class="text-center">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-info" name="PARENT_COMMON_CODE_ID">
+                                ${resultData.PARENT_COMMON_CODE_ID}
+                            </button>
+                        </div>
+                    </td>
+					 <%-- Delete --%>
+                    <td>
+                        <form action="/commoncodeour/delete/${resultData.COMMON_CODE_ID}" method="post">
+                            <button class="btn btn-link viewPopup">delete</button>
+                        </form>        
+				  </td>	
 			</tr>
 		</c:forEach>
 	</tbody>
