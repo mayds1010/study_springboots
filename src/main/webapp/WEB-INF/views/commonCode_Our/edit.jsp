@@ -57,6 +57,7 @@
 		</div>
 	</div>
 </div>
+<div class="container">
 <div class="form-group form-row">
 	<div class="col">
 		<div class="form-check">
@@ -76,6 +77,7 @@
 			>
 			
 		</button>
+	</div>
 	</div>
 	<div class="col text-right">
 		<%-- <button type="button" class="btn btn-secondary" data-dismiss="modal">
