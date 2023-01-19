@@ -24,12 +24,14 @@ public class CommonCodeOurController {
   public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
     Object resultMap = commonCodeOurService.insertAndGetList(params);
     modelAndView.addObject("resultMap", resultMap);
+
     modelAndView.setViewName("commonCode_our/list");
     return modelAndView;
   }
 
   @RequestMapping(value = { "/form" }, method = RequestMethod.GET)
   public ModelAndView form(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+
     modelAndView.setViewName("commonCode_our/edit"); // edit화면 재사용
     return modelAndView;
   }
@@ -40,6 +42,7 @@ public class CommonCodeOurController {
     params.put("COMMON_CODE_ID", uniqueId);
     Object resultMap = commonCodeOurService.deleteAndGetList(params);
     modelAndView.addObject("resultMap", resultMap);
+
     modelAndView.setViewName("commonCode_our/list");
     return modelAndView;
   }
@@ -48,6 +51,7 @@ public class CommonCodeOurController {
   public ModelAndView update(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
     Object resultMap = commonCodeOurService.updateAndGetList(params);
     modelAndView.addObject("resultMap", resultMap);
+
     modelAndView.setViewName("commonCode_our/list");
     return modelAndView;
   }
