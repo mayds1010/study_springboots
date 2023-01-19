@@ -28,7 +28,6 @@ public class CommonCodeOurController {
     modelAndView.setViewName("commonCode_Our/list");
 
     return modelAndView;
-    // return "redirect:/commoncodeour/list";
   }
 
   @RequestMapping(value = { "/form" }, method = RequestMethod.GET)
