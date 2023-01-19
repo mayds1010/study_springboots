@@ -17,13 +17,13 @@ public class CommonCodeOurService {
     }
 
     public Object updateAndGetList(Object dataMap) {
-        Object result = this.updateOne(dataMap);
+        Object result = this.update(dataMap);
         result = this.getList(dataMap);
         return result;
     }
 
     public Object insertAndGetList(Object dataMap) {
-        Object result = this.insertOne(dataMap);
+        Object result = this.insert(dataMap);
         result = this.getList(dataMap);
         return result;
     }
@@ -40,7 +40,7 @@ public class CommonCodeOurService {
         return result;
     }
 
-    public Object updateOne(Object dataMap) {
+    public Object update(Object dataMap) {
         String sqlMapId = "CommonCodeOur.updateByUID";
 
         Object result = commonCodeOurDao.update(sqlMapId, dataMap);
@@ -53,7 +53,7 @@ public class CommonCodeOurService {
         return result;
     }
 
-    public Object insertOne(Object dataMap) {
+    public Object insert(Object dataMap) {
         String sqlMapId = "CommonCodeOur.insertWithUID";
 
         Object result = commonCodeOurDao.insert(sqlMapId, dataMap);

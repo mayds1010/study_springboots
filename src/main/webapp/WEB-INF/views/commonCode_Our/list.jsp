@@ -9,7 +9,8 @@
 <form action="/commonCodeOur/form" method="get">
 	<button class="btn btn-info"
 		>Form</button>
-</form>>       
+</form>
+      
 <table class="table table-striped table-hover table-bordered">
 	<thead>
 		<tr class="text-center">
