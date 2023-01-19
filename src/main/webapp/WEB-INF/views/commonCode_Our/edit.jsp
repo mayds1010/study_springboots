@@ -5,6 +5,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
 <div class="container">
+<%-- resultMap 없으면 insert로 이동 --%>
 <c:set var="form_action" value="update" />
     <c:if test="${empty resultMap}">
    <c:set var="form_action" value="insert" />
@@ -21,8 +22,8 @@
 	<div class="col">
 		<label>코드 ID</label> <input class="form-control" type="text"
 			name="COMMON_CODE_ID"  value="${resultMap.COMMON_CODE_ID}"
-			placeholder="TEMPORORY_COMMONCODE" required ${form_action == "update" ? "readonly" :"" }/>
-			<%-- required readonly 값이 변경되지 않음  --%>
+			 required ${form_action == "update" ? "readonly" : "" }/>
+			<%--placeholder="TEMPORORY_COMMONCODE" required readonly 값이 변경되지 않음  --%>
 		<div class="invalid-tooltip">
 		</div>
 		

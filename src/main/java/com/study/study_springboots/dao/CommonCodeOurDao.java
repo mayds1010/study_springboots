@@ -28,15 +28,15 @@ public class CommonCodeOurDao {
 
     }
 
-    public Object insert(String sqlMapId, Object dataMap) {
-        Object result = sqlSessionTemplate.insert(sqlMapId, dataMap);
-        return result;// 숫자 표시됨
+    public Object delete(String sqlMapId, Object dataMap) {
+        Object result = sqlSessionTemplate.delete(sqlMapId, dataMap);
+        return result;
 
     }
 
-    public Object delete(String sqlMapId, Object dataMap) {
-        Object result = sqlSessionTemplate.delete(sqlMapId, dataMap);
-        return result;// 숫자 표시됨
+    public Object insert(String sqlMapId, Object dataMap) {
+        Object result = sqlSessionTemplate.insert(sqlMapId, dataMap);
+        return result;
 
     }
 

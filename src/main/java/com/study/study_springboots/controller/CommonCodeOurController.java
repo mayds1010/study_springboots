@@ -18,48 +18,45 @@ import com.study.study_springboots.service.CommonCodeOurService;
 public class CommonCodeOurController {
 
   @Autowired
-  CommonCodeOurService commonCodecodeOurService;
+  CommonCodeOurService commonCodeOurService;
 
-  @RequestMapping(value = { "/insert" }, method = RequestMethod.POST) // update는 post
+  @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
   public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-
-    Object resultMap = commonCodecodeOurService.insertAndGetList(params);
+    Object resultMap = commonCodeOurService.insertAndGetList(params);
     modelAndView.addObject("resultMap", resultMap);
-    modelAndView.setViewName("commonCode_Our/list");
-
+    modelAndView.setViewName("commonCode_our/list");
     return modelAndView;
   }
 
   @RequestMapping(value = { "/form" }, method = RequestMethod.GET)
   public ModelAndView form(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-
-    modelAndView.setViewName("commonCode_our/edit");
+    modelAndView.setViewName("commonCode_our/edit"); // edit화면 재사용
     return modelAndView;
   }
 
-  @RequestMapping(value = "/delete/{uniqueId}", method = RequestMethod.POST)
-  public ModelAndView delete(@PathVariable String uniqueId, @RequestParam Map<String, Object> params,
+  @RequestMapping(value = { "/delete/{uniqueId}" }, method = RequestMethod.POST) // --> uniqueId는 list.jsp에서 넘어오는 uid
+  public ModelAndView delete(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
       ModelAndView modelAndView) {
-
     params.put("COMMON_CODE_ID", uniqueId);
-    Object resultMap = commonCodecodeOurService.deleteAndGetList(params);
+    Object resultMap = commonCodeOurService.deleteAndGetList(params);
     modelAndView.addObject("resultMap", resultMap);
-    modelAndView.setViewName("commonCode_Our/list");
-
+    modelAndView.setViewName("commonCode_our/list");
     return modelAndView;
   }
 
-  @RequestMapping(value = { "/update" }, method = RequestMethod.POST) // update는 post
+  @RequestMapping(value = { "/update" }, method = RequestMethod.POST) // --> @GetMapping(value = "/list") // 동일 코드
   public ModelAndView update(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-    commonCodecodeOurService.updateOne(params);
+    Object resultMap = commonCodeOurService.updateAndGetList(params);
+    modelAndView.addObject("resultMap", resultMap);
     modelAndView.setViewName("commonCode_our/list");
     return modelAndView;
   }
 
   @RequestMapping(value = { "/list", "/", "" }, method = RequestMethod.GET)
   public ModelAndView list(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-    Object resultMap = commonCodecodeOurService.getList(params);
+    Object resultMap = commonCodeOurService.getList(params);
     modelAndView.addObject("resultMap", resultMap);
+
     modelAndView.setViewName("commonCode_our/list");
     return modelAndView;
   }
@@ -68,8 +65,9 @@ public class CommonCodeOurController {
   public ModelAndView edit(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
       ModelAndView modelAndView) {
     params.put("COMMON_CODE_ID", uniqueId);
-    Object resultMap = commonCodecodeOurService.getOne(params);
+    Object resultMap = commonCodeOurService.getOne(params);
     modelAndView.addObject("resultMap", resultMap);
+
     modelAndView.setViewName("commonCode_our/edit");
     return modelAndView;
   }

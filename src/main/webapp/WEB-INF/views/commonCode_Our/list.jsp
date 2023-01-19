@@ -44,7 +44,7 @@
                     </td>
 					 <%-- Delete --%>
                     <td>
-                        <form action="/commoncodeour/delete/${resultData.COMMON_CODE_ID}" method="post">
+                        <form action="/commonCodeOur/delete/${resultData.COMMON_CODE_ID}" method="post">
                             <button class="btn btn-outline-info">Delete</button>
                         </form>        
 				  </td>	
