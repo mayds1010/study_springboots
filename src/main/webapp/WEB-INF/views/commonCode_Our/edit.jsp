@@ -5,35 +5,44 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
 <div class="container">
-<form action="/commonCodeOur/update" method="post">
+<c:set var="form_action" value="update" />
+    <c:if test="${empty resultMap}">
+   <c:set var="form_action" value="insert" />
+   </c:if>
+
+<form action="/commonCodeOur/${form_action}" method="post">
+
 <%-- 코드 ID --%>
+<input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111" >
+<input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111" >
+
 <input type="hidden" name="PARENT_COMMON_CODE_ID" value="${resultMap.PARENT_COMMON_CODE_ID}">
 <div class="form-group form-row">
 	<div class="col">
 		<label>코드 ID</label> <input class="form-control" type="text"
 			name="COMMON_CODE_ID"  value="${resultMap.COMMON_CODE_ID}"
-			placeholder="TEMPORORY_COMMONCODE" required readonly />
+			placeholder="TEMPORORY_COMMONCODE" required ${form_action == "update" ? "readonly" :"" }/>
 			<%-- required readonly 값이 변경되지 않음  --%>
 		<div class="invalid-tooltip">
-			
 		</div>
+		
 	</div>
 </div>
+			
 <%-- 코드명 --%>
 <div class="form-group form-row">
 	<div class="col">
 		<label>코드명 </label> <input class="form-control" type="text"
 			name="NAME" value="${resultMap.NAME}" placeholder="임시 코드명" required ${statusDisabled}/>
 		<div class="invalid-tooltip">
-			
 		</div>
 	</div>
 </div>
+			
 <%-- 표시 순서 --%>
 <div class="form-group form-row">
 	<div class="col">
-		<label>표시 순서 <span class="text-muted">(<spring:message
-					code="text.option" />)
+		<label>표시 순서 <span class="text-muted">(<spring:messagecode="text.option" />)
 		</span></label> 
 		<select class="form-control" name="ORDER_NUMBER" ${statusDisabled}>
 		<%-- for(int number = 1; number <= 5; number++)와 비슷--%>
@@ -48,8 +57,7 @@
 <%-- 설명 --%>
 <div class="form-group form-row">
 	<div class="col">
-		<label>설명 <span class="text-muted">(<spring:message
-					code="text.option" />)
+		<label>설명 <span class="text-muted">(<spring:messagecode="text.option" />)
 		</span></label>
 		<textarea class="form-control" rows="3" name="DESCRIPTION"
 			placeholder=""
@@ -81,7 +89,7 @@
 <div class="row justify-content-between">
 	<div class="col">
 			<button class="btn btn-primary">
-				Update
+				${form_action} 
 			</button>
 <%-- List --%>
 		<button class="btn btn-outline-info">

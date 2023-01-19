@@ -20,12 +20,33 @@ public class CommonCodeOurController {
   @Autowired
   CommonCodeOurService commonCodecodeOurService;
 
-  @RequestMapping(value = { "/delete/{uniqueId}" }, method = RequestMethod.POST)
-  public ModelAndView delete(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
+  @RequestMapping(value = { "/insert" }, method = RequestMethod.POST) // update는 post
+  public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+
+    Object resultMap = commonCodecodeOurService.insertAndGetList(params);
+    modelAndView.addObject("resultMap", resultMap);
+    modelAndView.setViewName("commonCode_Our/list");
+
+    return modelAndView;
+    // return "redirect:/commoncodeour/list";
+  }
+
+  @RequestMapping(value = { "/form" }, method = RequestMethod.GET)
+  public ModelAndView form(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+
+    modelAndView.setViewName("commonCode_our/edit");
+    return modelAndView;
+  }
+
+  @RequestMapping(value = "/delete/{uniqueId}", method = RequestMethod.POST)
+  public ModelAndView delete(@PathVariable String uniqueId, @RequestParam Map<String, Object> params,
       ModelAndView modelAndView) {
+
     params.put("COMMON_CODE_ID", uniqueId);
-    commonCodecodeOurService.delete(params);
-    modelAndView.setViewName("commonCode_our/list");
+    Object resultMap = commonCodecodeOurService.deleteAndGetList(params);
+    modelAndView.addObject("resultMap", resultMap);
+    modelAndView.setViewName("commonCode_Our/list");
+
     return modelAndView;
   }
 

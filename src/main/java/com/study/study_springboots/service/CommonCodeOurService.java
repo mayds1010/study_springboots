@@ -10,6 +10,18 @@ public class CommonCodeOurService {
     @Autowired
     CommonCodeOurDao commonCodeOurDao;
 
+    public Object deleteAndGetList(Object dataMap) {
+        Object result = this.delete(dataMap);
+        result = this.getList(dataMap);
+        return result;
+    }
+
+    public Object insertAndGetList(Object dataMap) {
+        Object result = insertOne(dataMap);
+        result = getList(dataMap);
+        return result;
+    }
+
     public Object getList(Object dataMap) { // 중간단계 컨트롤러로 감
         String sqlMapId = "CommonCodeOur.selectListByUID";
         Object result = commonCodeOurDao.getList(sqlMapId, dataMap);
@@ -25,7 +37,14 @@ public class CommonCodeOurService {
     public Object updateOne(Object dataMap) {
         String sqlMapId = "CommonCodeOur.updateByUID";
 
-        Object result = commonCodeOurDao.updateOne(sqlMapId, dataMap);
+        Object result = commonCodeOurDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertOne(Object dataMap) {
+        String sqlMapId = "CommonCodeOur.insertWithUID";
+
+        Object result = commonCodeOurDao.insert(sqlMapId, dataMap);
         return result;
     }
 
@@ -35,4 +54,5 @@ public class CommonCodeOurService {
         Object result = commonCodeOurDao.delete(sqlMapId, dataMap);
         return result;
     }
+
 }
