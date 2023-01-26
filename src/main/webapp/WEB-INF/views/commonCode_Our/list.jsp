@@ -9,6 +9,10 @@
 	<button class="btn btn-info"
 		>Form</button>
 </form>
+<form action="/commonCodeOur/formMulti" method="get">
+	<button class="btn btn-info"
+		>formMulti</button>
+</form>
 
 <%-- table을 form으로 쌈 --%>
 <form action="/commonCodeOur/deleteMulti" method="post">

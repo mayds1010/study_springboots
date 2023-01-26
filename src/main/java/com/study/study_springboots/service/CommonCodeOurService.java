@@ -10,8 +10,19 @@ public class CommonCodeOurService {
     @Autowired
     CommonCodeOurDao commonCodeOurDao;
 
+    @Autowired
+    AttachFileService attachFileService;
+
     public Object deleteAndGetList(Object dataMap) {
         Object result = this.delete(dataMap); // 아래 delete function 불러오기
+        result = this.getList(dataMap);
+        return result;
+    }
+
+    public Object insertWithFilesAndGetList(Object dataMap) {
+        // insert files
+        Object result = attachFileService.insertMulti(dataMap);
+        result = this.insert(dataMap);
         result = this.getList(dataMap);
         return result;
     }

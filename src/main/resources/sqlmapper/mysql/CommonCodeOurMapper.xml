@@ -4,10 +4,11 @@
 <mapper namespace="CommonCodeOur">
 
     <select id="selectListByUID" parameterType="Map" resultType="Map"><!-- key,value로 뽑기에 "Map" -->
-        SELECT * 
-        FROM CIP_COMMON_CODE
-        WHERE ORDER_NUMBER <![CDATA[ > ]]> 3
-        <!-- <![CDATA[ > ]]> 3 문자화 -->
+    SELECT * 
+    FROM CIP_COMMON_CODE
+    <!--[CDATA[
+    WHERE ORDER_NUMBER > 3
+    ]]-->
     </select>
 
     <!-- call CommonCodeOur.selectByUID  -->
