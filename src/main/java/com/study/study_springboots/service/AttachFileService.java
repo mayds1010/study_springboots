@@ -29,7 +29,7 @@ public class AttachFileService {
         return result;
     }
 
-    public Object getList(Object dataMap) { // 중간단계 컨트롤러로 감
+    public Object getList(Object dataMap) { // 마지막 file업로드를 위한
         String sqlMapId = "AttachFile.selectListByUID";
         Object result = attachFileDao.getList(sqlMapId, dataMap);
         return result;

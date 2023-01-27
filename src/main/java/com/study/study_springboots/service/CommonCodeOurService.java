@@ -1,5 +1,8 @@
 package com.study.study_springboots.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +14,17 @@ public class CommonCodeOurService {
     CommonCodeOurDao commonCodeOurDao;
 
     @Autowired
-    AttachFileService attachFileService;
+    AttachFileService attachFileService; // controller에 연결하지 않고 여기에 연결함
+
+    public Object getOneWithAttachFiles(Object dataMap) {
+        // Attach files ArrayList<Map>, getOne은 Map
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("attachFiles", attachFileService.getList(dataMap));
+
+        // 기존 값 보존을 위해 사용
+        result.putAll((Map<String, Object>) this.getOne(dataMap));// putAll: result에 키,값을 자동으로 넣어 줌
+        return result;
+    }
 
     public Object deleteAndGetList(Object dataMap) {
         Object result = this.delete(dataMap); // 아래 delete function 불러오기
