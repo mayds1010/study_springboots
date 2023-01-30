@@ -16,5 +16,6 @@
     <div><a href="/jstlformats">jstl_formats.jsp</a></div>
     <div><a href="/notice/list">/notice noticeController list() /notice/list.jsp</a></div>
      <div> <a href="/commonCodeOur/">/commonCodeOur/list.jsp</a> </div>
+     <div> <a href="/commonCodeOur/listPagination/1">/commonCodeOur/list_pagination.jsp</a> </div>
 </body>
 </html>

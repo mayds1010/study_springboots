@@ -177,9 +177,21 @@ public class CommonCodeOurController {
     return modelAndView;
   }
 
+  @RequestMapping(value = { "/listPagination/{currentPage}" }, method = RequestMethod.GET)
+  public ModelAndView listPagination(@RequestParam Map<String, Object> params,
+      @PathVariable String currentPage, ModelAndView modelAndView) {
+    params.put("currentPage", Integer.parseInt(currentPage)); // string을 integer로
+    params.put("pageScale", 10);
+    Object resultMap = commonCodeOurService.getList(params);
+    modelAndView.addObject("resultMap", resultMap);
+
+    modelAndView.setViewName("commonCode_our/list_pagination");
+    return modelAndView;
+  }
+
   @RequestMapping(value = { "/edit/{uniqueId}" }, method = RequestMethod.GET)
-  public ModelAndView edit(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
-      ModelAndView modelAndView) {
+  public ModelAndView edit(@RequestParam Map<String, Object> params,
+      @PathVariable String uniqueId, ModelAndView modelAndView) {
     params.put("COMMON_CODE_ID", uniqueId);
     Object resultMap = commonCodeOurService.getOne(params);
     modelAndView.addObject("resultMap", resultMap);
@@ -189,8 +201,8 @@ public class CommonCodeOurController {
   }
 
   @RequestMapping(value = { "/editMulti/{uniqueId}" }, method = RequestMethod.GET)
-  public ModelAndView editMulti(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
-      ModelAndView modelAndView) {
+  public ModelAndView editMulti(@RequestParam Map<String, Object> params,
+      @PathVariable String uniqueId, ModelAndView modelAndView) {
     params.put("COMMON_CODE_ID", uniqueId);
     params.put("SOURCE_UNIQUE_SEQ", uniqueId);
     Object resultMap = commonCodeOurService.getOneWithAttachFiles(params);
