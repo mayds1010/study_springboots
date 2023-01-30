@@ -27,7 +27,7 @@ public class Paginations { // bean같은 역할
     // 전체 페이지 블록 갯수 계산
     public void setTotalBlock() {
         totalBlock = (int) Math.ceil(totalPage / blockScale);
-    }
+    }// Math.ceil-반올림이 일어남
 
     // 현재 페이지가 몇번째 페이지에 속하는지 계산
     public void setBlockRange() {
@@ -57,7 +57,7 @@ public class Paginations { // bean같은 역할
     }
 
     public void setTotalpage(int totalCount) {
-        this.totalPage = (int) Math.ceil(totalCount / this.pageScale);
+        this.totalPage = (int) Math.ceil(totalCount * 1.0 / this.pageScale);
         // Math.ceil(long이기에 int로 캐스트)
     }
 

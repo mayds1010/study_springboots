@@ -59,6 +59,7 @@ public class CommonCodeOurService {
         int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
         Paginations paginations = new Paginations(totalCount, currentPage);
         result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin()); // 파라미터추가
         result.put("resultList", this.getList(dataMap));
         return result;
     }

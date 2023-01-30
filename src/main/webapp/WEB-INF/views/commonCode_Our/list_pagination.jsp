@@ -34,7 +34,7 @@ ${paginations}
     </li>
 	<%-- for(int i = 0; i > 9; i++){} = blockScale = 5; --%>
 	<c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
-    <li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/1">${i}</a></li>
+    <li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/${i}">${i}</a></li>
    <%-- c:forEach사용하여 하나만 남겨두고 지워짐 --%>
     </c:forEach>
 	<li class="page-item">
