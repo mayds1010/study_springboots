@@ -182,7 +182,7 @@ public class CommonCodeOurController {
       @PathVariable String currentPage, ModelAndView modelAndView) {
     params.put("currentPage", Integer.parseInt(currentPage)); // string을 integer로
     params.put("pageScale", 10);
-    Object resultMap = commonCodeOurService.getList(params);
+    Object resultMap = commonCodeOurService.getListWithPagination(params); // resultMap key:total,resultList
     modelAndView.addObject("resultMap", resultMap);
 
     modelAndView.setViewName("commonCode_our/list_pagination");

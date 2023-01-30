@@ -24,7 +24,7 @@
     </select>
 
        <!-- call CommonCodeOur.selectTotal  -->
-    <select id="selectTotal" parameterType="Map" resultType="Map"><!-- key,value로 뽑기에 "Map" -->
+    <select id="selectTotal" parameterType="Map" resultType="int">  <!-- resultType="int"-갯수만 받아옴  -->
         SELECT count(*) as cnt 
         FROM CIP_COMMON_CODE
     </select>

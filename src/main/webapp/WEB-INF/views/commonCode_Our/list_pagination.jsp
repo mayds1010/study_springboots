@@ -22,7 +22,9 @@
 </div>
 <%-- pagination 나중에 밑으로 내리기 --%>
 <nav aria-label="Page navigation example">
-	<span>총 갯수 : </span>
+ <c:set var="_pagination" value="${resultMap.paginations}" /><%-- resultMap.paginations가 _pagination안으로 --%>
+${paginations}
+ 	<span>총 갯수 : ${_pagination.totalCount}</span> <%-- 총 갯수 : 75로 출력 resultMap: key값--%>
   <ul class="pagination">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
@@ -30,10 +32,12 @@
         <span class="sr-only">Previous</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/1">1</a></li>
-    <li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/11">2</a></li>
-    <li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/21">3</a></li>
-    <li class="page-item">
+	<%-- for(int i = 0; i > 9; i++){} = blockScale = 5; --%>
+	<c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
+    <li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/1">${i}</a></li>
+   <%-- c:forEach사용하여 하나만 남겨두고 지워짐 --%>
+    </c:forEach>
+	<li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
@@ -58,7 +62,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${resultMap}" var="resultData" varStatus="loop">
+		<c:forEach items="${resultMap.resultList}" var="resultData" varStatus="loop">
 			<tr>
 				<td class="text-center">
 				<input type="checkbox" class="checkbox"

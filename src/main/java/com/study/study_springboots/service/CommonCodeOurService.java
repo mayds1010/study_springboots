@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.study_springboots.dao.CommonCodeOurDao;
+import com.study.study_springboots.utils.Paginations;
 
 @Service
 public class CommonCodeOurService {
@@ -52,9 +53,13 @@ public class CommonCodeOurService {
         return result;
     }
 
-    public Object getListWithPagination(Object dataMap) { // 중간단계 컨트롤러로 감
-        Object result = this.getTotal(dataMap);
-        result = this.getList(dataMap);
+    public Object getListWithPagination(Object dataMap) { // 묶음 두개로
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotal(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        Paginations paginations = new Paginations(totalCount, currentPage);
+        result.put("paginations", paginations);
+        result.put("resultList", this.getList(dataMap));
         return result;
     }
 
