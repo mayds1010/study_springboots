@@ -65,8 +65,8 @@
 					name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}" />
 				</td>
 				<td>
-					<form action="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" method="get">
-						<button class="btn btn-link viewPopup"
+					<button class="btn btn-link viewPopup" 
+							formaction="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" formmethod="GET"
 							>${resultData.COMMON_CODE_ID}</button>
 					</form>
 				</td>
