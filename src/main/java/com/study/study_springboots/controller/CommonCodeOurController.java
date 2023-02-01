@@ -189,6 +189,19 @@ public class CommonCodeOurController {
     return modelAndView;
   }
 
+  // @RequestMapping(value = { "/listPagination/{currentPage}" }, method =
+  // RequestMethod.GET)
+  // public ModelAndView listPagination(@RequestParam Map<String, Object> params,
+  // @PathVariable String currentPage, ModelAndView modelAndView) {
+  // params.put("currentPage", Integer.parseInt(currentPage)); // string을 integer로
+  // params.put("pageScale", 10);
+  // Object resultMap = commonCodeOurService.getListWithPagination(params); //
+  // resultMap key:total,resultList
+  // modelAndView.addObject("resultMap", resultMap);
+
+  // modelAndView.setViewName("commonCode_our/list_pagination");
+  // return modelAndView;
+  // } 전에 썼던거
   @RequestMapping(value = { "/edit/{uniqueId}" }, method = RequestMethod.GET)
   public ModelAndView edit(@RequestParam Map<String, Object> params,
       @PathVariable String uniqueId, ModelAndView modelAndView) {
