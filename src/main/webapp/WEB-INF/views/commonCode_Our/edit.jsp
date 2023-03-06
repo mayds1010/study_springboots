@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+<%-- 02.20새로 추가 --%>
+<link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <div class="container">
 <%-- resultMap 없으면 insert로 이동 --%>
@@ -11,7 +14,7 @@
    <c:set var="form_action" value="insert" />
    </c:if>
 
-<form action="/commonCodeOur/${form_action}" method="post" enctype = "multipart/form-data">
+<form id="action-form" action="/commonCodeOur/${form_action}" method="post" enctype = "multipart/form-data">
 
 <%-- 코드 ID --%>
 <input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111" >
@@ -64,9 +67,12 @@
 	<div class="col">
 		<label>설명 <span class="text-muted">(<spring:messagecode="text.option" />)
 		</span></label>
-		<textarea class="form-control" rows="3" name="DESCRIPTION"
+		<%-- 02.20새로 추가  textarea 주석함--%>
+		<%-- <textarea class="form-control" rows="3" name="DESCRIPTION"
 			placeholder=""
-			${statusDisabled}>${resultMap.DESCRIPTION }</textarea>
+			${statusDisabled}>${resultMap.DESCRIPTION }</textarea> --%>
+		<div id="editor" class="form-control"></div>
+		<input type="hiddin" name="DESCRIPTION" id="description" />
 	</div>
 </div>
 <%-- 시스템 코드여부 --%>
@@ -93,7 +99,7 @@
 <%-- Update --%>
 <div class="row justify-content-between">
 	<div class="col">
-			<button class="btn btn-primary">
+			<button class="btn btn-primary" id="submit-botton">
 				${form_action} 
 			</button>
 <%-- List --%>
@@ -106,6 +112,27 @@
 			
 		</button> --%>
 	</div>
+	<%-- 02.20 추가 --%>
+	<script>
+		var editor = new Quill('#editor', {
+			theme: 'snow'
+		});
+
+		//add content in Quill editor
+		editor.setContents(${resultMap.DESCRIPTION});
+		editor.disable(); //수정불가하게
+		editor.root.style.backgroundColor = '#f2f2f2';
+
+		let submitButton = document.querySelector('#submit-button');
+		submitButton.addEventListener("click", function (event) {
+			let content = editor.getContents();
+			let description = document.querySelector("#description");
+			description.value = JSON.stringify(content);
+
+			let form = document.querySelector("#action-form");
+			form.submit();
+		});
+	</script>
 </div>
 </form>
 </div>
